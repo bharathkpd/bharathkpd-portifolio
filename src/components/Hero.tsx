@@ -104,7 +104,7 @@ export function Hero() {
   };
 
   return (
-    <section id="home" className="relative min-h-[calc(100vh-4rem)] flex items-center bg-ivory bg-grid-pattern py-12 border-b-[0.5px] border-beige overflow-hidden">
+    <section id="home" className="relative min-h-[calc(100vh-4rem)] flex items-center bg-ivory py-12 border-b-[0.5px] border-beige overflow-hidden">
       {/* ============ Clean Minimal Background ============ */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
         {/* Soft gradient blob — top right */}
