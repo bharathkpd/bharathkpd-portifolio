@@ -105,79 +105,20 @@ export function Hero() {
 
   return (
     <section id="home" className="relative min-h-[calc(100vh-4rem)] flex items-center bg-ivory bg-grid-pattern py-12 border-b-[0.5px] border-beige overflow-hidden">
-      {/* ============ Enhanced CSE Background — visible on mobile too ============ */}
+      {/* ============ Clean Minimal Background ============ */}
       <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
-        
-        {/* SVG Circuit Lines — more visible on mobile */}
-        <svg className="absolute inset-0 w-full h-full text-terracotta/15" xmlns="http://www.w3.org/2000/svg" fill="none">
-          {/* Circuit Trace 1 */}
-          <path d="M -50,150 L 120,150 L 190,220 L 350,220" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
-          <circle cx="350" cy="220" r="3" fill="currentColor" />
+        {/* Soft gradient blob — top right */}
+        <div className="absolute -top-20 -right-20 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-terracotta/[0.04] blur-3xl" />
+        {/* Soft gradient blob — bottom left */}
+        <div className="absolute -bottom-16 -left-16 w-60 h-60 sm:w-80 sm:h-80 rounded-full bg-terracotta/[0.03] blur-3xl" />
+        {/* Tiny accent blob — center */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-40 h-40 rounded-full bg-beige/30 blur-2xl hidden md:block" />
 
-          {/* Circuit Trace 2 */}
-          <path d="M 80,0 L 80,180 L 160,260 L 160,420" stroke="currentColor" strokeWidth="1" />
-          <circle cx="160" cy="420" r="3" fill="currentColor" />
-
-          {/* Circuit Trace 3 - desktop */}
-          <path d="M 850,120 L 750,120 L 680,190 L 680,350" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" className="hidden md:block" />
-          <circle cx="680" cy="350" r="3" fill="currentColor" className="hidden md:block" />
-
-          {/* Mobile circuit traces */}
-          <path d="M 300,50 L 300,100 L 250,150" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 4" className="block md:hidden" />
-          <circle cx="250" cy="150" r="2" fill="currentColor" className="block md:hidden" />
-          
-          <path d="M 0,400 L 80,400 L 120,360" stroke="currentColor" strokeWidth="0.8" className="block md:hidden" />
-          <circle cx="120" cy="360" r="2" fill="currentColor" className="block md:hidden" />
-
-          {/* Circuit Nodes */}
-          <circle cx="120" cy="150" r="2" fill="currentColor" />
-          <circle cx="160" cy="260" r="2" fill="currentColor" />
-        </svg>
-
-        {/* ---- Mobile-visible tech watermarks ---- */}
-        {/* These are shown on ALL screen sizes for that "hype" background feel */}
-        <div className="absolute top-[6%] left-[3%] font-mono text-[10px] sm:text-xs text-terracotta/20 uppercase tracking-widest select-none">
-          {'// computer_science'}
-        </div>
-        <div className="absolute top-[14%] right-[4%] font-mono text-lg sm:text-3xl font-bold text-terracotta/[0.08] select-none">
-          01011001
-        </div>
-        <div className="absolute top-[22%] left-[5%] font-mono text-[9px] text-warmgray/15 select-none">
-          {'import { algorithms } from "cse";'}
-        </div>
-        <div className="absolute bottom-[32%] right-[3%] font-mono text-[9px] text-warmgray/15 select-none">
-          {'while(true) { learn(); build(); }'}
-        </div>
-        <div className="absolute bottom-[12%] left-[4%] font-mono text-[9px] sm:text-xs text-terracotta/15 uppercase tracking-widest select-none">
-          {'<cse_graduate />'}
-        </div>
-        <div className="absolute bottom-[6%] right-[5%] font-mono text-[9px] text-warmgray/12 select-none">
-          {'stack: MERN | TypeScript'}
-        </div>
-
-        {/* Floating binary strips for mobile */}
-        <div className="absolute top-[50%] left-[2%] font-mono text-[8px] text-terracotta/10 leading-tight select-none block md:hidden">
-          10110<br/>01101<br/>11010<br/>00101
-        </div>
-        <div className="absolute top-[35%] right-[2%] font-mono text-[8px] text-warmgray/10 leading-tight select-none block md:hidden">
-          {'{'}<br/>{'  dsa,'}<br/>{'  os,'}<br/>{'  dbms'}<br/>{'}'}
-        </div>
-
-        {/* Large CSE watermark — now visible (subtly) on mobile too */}
-        <div className="absolute bottom-[2%] left-[10%] sm:left-[38%] font-serif text-[20vw] sm:text-[14vw] font-bold text-charcoal/[0.02] uppercase leading-none select-none">
-          C S E
-        </div>
-
-        {/* Desktop-only extras */}
-        <div className="absolute top-[38%] left-[6%] font-mono text-xs text-warmgray/20 hidden lg:block select-none">
-          {"import { algorithms, data_structures } from 'cse';"}
-        </div>
-        <div className="absolute top-[30%] right-[3%] font-mono text-sm text-warmgray/20 hidden md:block select-none">
-          {'{ core_stack: "MERN Stack" }'}
-        </div>
-        <div className="absolute bottom-[18%] right-[8%] font-mono text-xs text-terracotta/25 uppercase tracking-widest hidden sm:block select-none">
-          {'<computer_science_graduate />'}
-        </div>
+        {/* Subtle decorative dots */}
+        <div className="absolute top-[15%] right-[12%] w-1.5 h-1.5 rounded-full bg-terracotta/20" />
+        <div className="absolute top-[40%] left-[8%] w-1 h-1 rounded-full bg-terracotta/15" />
+        <div className="absolute bottom-[20%] right-[6%] w-1 h-1 rounded-full bg-warmgray/20" />
+        <div className="absolute bottom-[35%] left-[15%] w-1.5 h-1.5 rounded-full bg-beige/60 hidden sm:block" />
       </div>
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center w-full">
