@@ -44,7 +44,7 @@ export function Navbar() {
     document.body.style.overflow = '';
     setIsOpen(false);
 
-    // Scroll after the drawer close animation completes to avoid jerky layout movements
+    // Scroll after the overlay close animation completes
     setTimeout(() => {
       const element = document.getElementById(id);
       if (element) {
@@ -57,7 +57,7 @@ export function Navbar() {
           behavior: 'smooth',
         });
       }
-    }, 200);
+    }, 150);
   };
 
   return (
@@ -112,7 +112,7 @@ export function Navbar() {
         {/* Mobile menu button */}
         <button
           onClick={toggleMenu}
-          className="md:hidden p-2 text-charcoal hover:text-terracotta transition-colors"
+          className="md:hidden p-2 text-charcoal hover:text-terracotta transition-colors z-[160]"
           aria-label="Toggle menu"
         >
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -120,69 +120,93 @@ export function Navbar() {
       </div>
     </header>
 
-    {/* Mobile Slide-in Menu Overlay */}
-      <div
-        className={`fixed inset-0 z-[105] bg-charcoal/20 backdrop-blur-xs transition-opacity duration-300 md:hidden ${
-          isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
-        }`}
-        onClick={toggleMenu}
-      />
-      
-      {/* Mobile Sidebar */}
-      <div
-        className={`fixed top-0 right-0 z-[110] h-full w-64 bg-cream border-l-[0.5px] border-beige shadow-lg transform transition-all duration-300 ease-in-out md:hidden ${
-          isOpen ? 'translate-x-0 visible' : 'translate-x-full invisible pointer-events-none'
-        }`}
-      >
-        <div className="flex justify-between items-center p-5 border-b-[0.5px] border-beige/40">
-          <span className="font-mono text-[10px] text-warmgray uppercase tracking-widest">Navigation</span>
+    {/* ============ Mobile Full-Screen Overlay Menu ============ */}
+    <div
+      className={`fixed inset-0 z-[150] md:hidden transition-all duration-300 ease-in-out ${
+        isOpen
+          ? 'opacity-100 visible'
+          : 'opacity-0 invisible pointer-events-none'
+      }`}
+      style={{ width: '100vw', height: '100vh' }}
+    >
+      {/* Backdrop */}
+      <div className="absolute inset-0 bg-charcoal/95 backdrop-blur-lg" />
+
+      {/* Decorative background elements */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <div className="absolute top-[10%] right-[10%] w-32 h-32 rounded-full border border-terracotta/20 animate-pulse" />
+        <div className="absolute bottom-[15%] left-[8%] w-20 h-20 rounded-full border border-terracotta/15" />
+        <div className="absolute top-[45%] left-[5%] font-mono text-[10px] text-terracotta/20 tracking-widest">{'<nav>'}</div>
+        <div className="absolute bottom-[25%] right-[5%] font-mono text-[10px] text-terracotta/20 tracking-widest">{'</nav>'}</div>
+        {/* Gradient accent line */}
+        <div className="absolute top-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-terracotta to-transparent" />
+      </div>
+
+      {/* Menu Content */}
+      <div className="relative flex flex-col items-center justify-center h-full px-8">
+        {/* Header */}
+        <div className="absolute top-5 left-6 right-6 flex items-center justify-between">
+          <span className="font-serif text-lg font-bold text-ivory/90 tracking-tight">
+            Bharathkpd<span className="text-terracotta">.Dev</span>
+          </span>
           <button
             onClick={toggleMenu}
-            className="flex items-center space-x-1.5 text-charcoal hover:text-terracotta transition-colors font-mono text-xs"
+            className="flex items-center space-x-2 text-ivory/70 hover:text-terracotta transition-colors"
             aria-label="Close menu"
           >
-            <span className="text-[10px] text-warmgray/70">close()</span>
-            <X className="w-4 h-4" />
+            <span className="font-mono text-[10px] tracking-wider uppercase text-ivory/40">close</span>
+            <X className="w-5 h-5" />
           </button>
         </div>
 
-        <nav className="flex flex-col px-6 mt-4 justify-between h-[calc(100%-8rem)]">
-          <ul className="flex flex-col divide-y-[0.5px] divide-beige/50">
-            {navLinks.map((link, idx) => {
-              const isActive = activeId === link.id;
-              return (
-                <li key={link.id}>
-                  <a
-                    href={link.path}
-                    onClick={(e) => handleLinkClick(e, link.id)}
-                    className={`flex items-center justify-between py-4 transition-colors duration-250 ${
-                      isActive ? 'text-terracotta font-semibold' : 'text-warmgray'
-                    }`}
-                  >
-                    <div className="flex items-center space-x-2">
-                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse" />}
-                      <span className="font-sans text-sm tracking-wide">{link.label}</span>
-                    </div>
-                    <span className="font-mono text-[10px] text-terracotta/75">0{idx + 1}</span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-
-          <div className="pt-6 border-t-[0.5px] border-beige/50 mt-auto">
-            <a
-              href="/resume.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center space-x-2 px-4 py-3 bg-cream border border-terracotta text-terracotta hover:bg-terracotta hover:text-ivory text-sm font-mono transition-all duration-300 rounded-sm w-full"
-            >
-              <FileText className="w-4 h-4" />
-              <span>resume.pdf</span>
-            </a>
-          </div>
+        {/* Nav Links */}
+        <nav className="flex flex-col items-center space-y-1 w-full max-w-xs">
+          {navLinks.map((link, idx) => {
+            const isActive = activeId === link.id;
+            return (
+              <a
+                key={link.id}
+                href={link.path}
+                onClick={(e) => handleLinkClick(e, link.id)}
+                className={`group flex items-center justify-center w-full py-3 transition-all duration-300 ${
+                  isActive
+                    ? 'text-terracotta'
+                    : 'text-ivory/70 hover:text-terracotta'
+                }`}
+              >
+                <span className="font-mono text-[10px] mr-3 text-terracotta/60 tabular-nums">
+                  0{idx + 1}
+                </span>
+                <span className={`font-serif text-xl tracking-wide ${
+                  isActive ? 'font-bold' : 'font-normal'
+                }`}>
+                  {link.label}
+                </span>
+                {isActive && (
+                  <span className="ml-3 w-2 h-2 rounded-full bg-terracotta animate-pulse" />
+                )}
+              </a>
+            );
+          })}
         </nav>
+
+        {/* Bottom section: Resume + social hint */}
+        <div className="absolute bottom-8 left-6 right-6 flex flex-col items-center space-y-4">
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center space-x-2 px-6 py-3 border border-terracotta/60 text-terracotta hover:bg-terracotta hover:text-ivory text-sm font-mono transition-all duration-300 rounded-sm"
+          >
+            <FileText className="w-4 h-4" />
+            <span>resume.pdf</span>
+          </a>
+          <p className="font-mono text-[9px] text-ivory/25 tracking-widest uppercase">
+            © 2025 Bharathkpd • Built with React + Vite
+          </p>
+        </div>
       </div>
+    </div>
     </>
   );
 }

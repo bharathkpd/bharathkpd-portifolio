@@ -105,34 +105,130 @@ export function Hero() {
 
   return (
     <section id="home" className="relative min-h-[calc(100vh-4rem)] flex items-center bg-ivory bg-grid-pattern py-12 border-b-[0.5px] border-beige overflow-hidden">
-      {/* CSE Floating Background Watermarks */}
-      <div className="absolute top-[12%] left-[5%] font-mono text-[10px] sm:text-xs text-terracotta/10 select-none pointer-events-none uppercase tracking-widest hidden sm:block">const dept = 'cse';</div>
-      <div className="absolute top-[40%] left-[8%] font-mono text-[9px] sm:text-[10px] text-warmgray/8 select-none pointer-events-none hidden lg:block">import &#123; algorithms, structures &#125; from 'computer-science';</div>
-      <div className="absolute top-[8%] right-[8%] font-mono text-xl sm:text-2xl font-bold text-terracotta/[0.04] select-none pointer-events-none">01011001</div>
-      <div className="absolute top-[35%] right-[4%] font-mono text-xs sm:text-sm text-warmgray/8 select-none pointer-events-none hidden md:block">&#123; dev: "MERN Stack" &#125;</div>
-      <div className="absolute bottom-[12%] left-[8%] font-mono text-[10px] sm:text-[11px] text-warmgray/8 select-none pointer-events-none hidden sm:block">while(problem) &#123; solve(); &#125;</div>
-      <div className="absolute bottom-[18%] right-[10%] font-mono text-[10px] sm:text-xs text-terracotta/10 select-none pointer-events-none uppercase tracking-widest hidden sm:block">&lt;cse_graduate /&gt;</div>
-      <div className="absolute bottom-[4%] left-[40%] font-serif text-[12vw] font-bold text-charcoal/[0.015] select-none pointer-events-none uppercase leading-none hidden lg:block">C S E</div>
-
-      <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center w-full">
+      {/* ============ Enhanced CSE Background — visible on mobile too ============ */}
+      <div className="absolute inset-0 pointer-events-none select-none overflow-hidden">
         
-        {/* Left Column: Text Content */}
-        <div className="md:col-span-7 flex flex-col justify-center space-y-8 order-2 md:order-1">
+        {/* SVG Circuit Lines — more visible on mobile */}
+        <svg className="absolute inset-0 w-full h-full text-terracotta/15" xmlns="http://www.w3.org/2000/svg" fill="none">
+          {/* Circuit Trace 1 */}
+          <path d="M -50,150 L 120,150 L 190,220 L 350,220" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" />
+          <circle cx="350" cy="220" r="3" fill="currentColor" />
+
+          {/* Circuit Trace 2 */}
+          <path d="M 80,0 L 80,180 L 160,260 L 160,420" stroke="currentColor" strokeWidth="1" />
+          <circle cx="160" cy="420" r="3" fill="currentColor" />
+
+          {/* Circuit Trace 3 - desktop */}
+          <path d="M 850,120 L 750,120 L 680,190 L 680,350" stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" className="hidden md:block" />
+          <circle cx="680" cy="350" r="3" fill="currentColor" className="hidden md:block" />
+
+          {/* Mobile circuit traces */}
+          <path d="M 300,50 L 300,100 L 250,150" stroke="currentColor" strokeWidth="0.8" strokeDasharray="2 4" className="block md:hidden" />
+          <circle cx="250" cy="150" r="2" fill="currentColor" className="block md:hidden" />
+          
+          <path d="M 0,400 L 80,400 L 120,360" stroke="currentColor" strokeWidth="0.8" className="block md:hidden" />
+          <circle cx="120" cy="360" r="2" fill="currentColor" className="block md:hidden" />
+
+          {/* Circuit Nodes */}
+          <circle cx="120" cy="150" r="2" fill="currentColor" />
+          <circle cx="160" cy="260" r="2" fill="currentColor" />
+        </svg>
+
+        {/* ---- Mobile-visible tech watermarks ---- */}
+        {/* These are shown on ALL screen sizes for that "hype" background feel */}
+        <div className="absolute top-[6%] left-[3%] font-mono text-[10px] sm:text-xs text-terracotta/20 uppercase tracking-widest select-none">
+          {'// computer_science'}
+        </div>
+        <div className="absolute top-[14%] right-[4%] font-mono text-lg sm:text-3xl font-bold text-terracotta/[0.08] select-none">
+          01011001
+        </div>
+        <div className="absolute top-[22%] left-[5%] font-mono text-[9px] text-warmgray/15 select-none">
+          {'import { algorithms } from "cse";'}
+        </div>
+        <div className="absolute bottom-[32%] right-[3%] font-mono text-[9px] text-warmgray/15 select-none">
+          {'while(true) { learn(); build(); }'}
+        </div>
+        <div className="absolute bottom-[12%] left-[4%] font-mono text-[9px] sm:text-xs text-terracotta/15 uppercase tracking-widest select-none">
+          {'<cse_graduate />'}
+        </div>
+        <div className="absolute bottom-[6%] right-[5%] font-mono text-[9px] text-warmgray/12 select-none">
+          {'stack: MERN | TypeScript'}
+        </div>
+
+        {/* Floating binary strips for mobile */}
+        <div className="absolute top-[50%] left-[2%] font-mono text-[8px] text-terracotta/10 leading-tight select-none block md:hidden">
+          10110<br/>01101<br/>11010<br/>00101
+        </div>
+        <div className="absolute top-[35%] right-[2%] font-mono text-[8px] text-warmgray/10 leading-tight select-none block md:hidden">
+          {'{'}<br/>{'  dsa,'}<br/>{'  os,'}<br/>{'  dbms'}<br/>{'}'}
+        </div>
+
+        {/* Large CSE watermark — now visible (subtly) on mobile too */}
+        <div className="absolute bottom-[2%] left-[10%] sm:left-[38%] font-serif text-[20vw] sm:text-[14vw] font-bold text-charcoal/[0.02] uppercase leading-none select-none">
+          C S E
+        </div>
+
+        {/* Desktop-only extras */}
+        <div className="absolute top-[38%] left-[6%] font-mono text-xs text-warmgray/20 hidden lg:block select-none">
+          {"import { algorithms, data_structures } from 'cse';"}
+        </div>
+        <div className="absolute top-[30%] right-[3%] font-mono text-sm text-warmgray/20 hidden md:block select-none">
+          {'{ core_stack: "MERN Stack" }'}
+        </div>
+        <div className="absolute bottom-[18%] right-[8%] font-mono text-xs text-terracotta/25 uppercase tracking-widest hidden sm:block select-none">
+          {'<computer_science_graduate />'}
+        </div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-12 items-center w-full">
+        
+        {/* ============ Profile Image — shown FIRST on mobile ============ */}
+        <div className="md:col-span-5 flex justify-center order-1 md:order-2 mb-4 md:mb-0">
+          <Reveal delay={300} direction="none">
+            <div className="relative group flex items-center justify-center">
+              {/* Outer decorative ring — scaled for mobile */}
+              <div className="absolute -inset-3 sm:-inset-4 rounded-full border border-dashed border-terracotta/30 group-hover:border-terracotta/60 transition-colors duration-500 animate-spin-slow pointer-events-none" />
+              
+              {/* Glowing accent ring on mobile */}
+              <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-terracotta/20 via-transparent to-terracotta/10 blur-sm pointer-events-none" />
+
+              {/* Image Frame — bigger and bolder on mobile */}
+              <div className="w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 rounded-full border-2 sm:border-[1.5px] border-terracotta/80 shadow-2xl shadow-terracotta/10 overflow-hidden transition-all duration-750 ease-in-out bg-cream flex items-center justify-center">
+                <img
+                  src={profileImg}
+                  alt="Kalavalapudi Bharath Kumar"
+                  className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-750 ease-in-out"
+                  loading="eager"
+                />
+              </div>
+              
+              {/* Mobile-only name tag below the photo */}
+              <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 md:hidden">
+                <div className="bg-terracotta/90 text-ivory text-[10px] font-mono px-3 py-1 rounded-full whitespace-nowrap shadow-lg">
+                  Bharath Kumar
+                </div>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* ============ Left Column: Text Content ============ */}
+        <div className="md:col-span-7 flex flex-col justify-center space-y-6 sm:space-y-8 order-2 md:order-1 mt-4 md:mt-0">
           
           {/* Typing Terminal */}
-          <div className="w-full max-w-lg bg-cream border-[0.5px] border-beige rounded p-4 font-mono text-sm text-charcoal">
+          <div className="w-full max-w-lg bg-cream border-[0.5px] border-beige rounded p-3 sm:p-4 font-mono text-sm text-charcoal">
             {/* Terminal Window Controls */}
             <div className="flex items-center space-x-1.5 mb-3 border-b-[0.5px] border-beige/60 pb-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-terracotta/80" />
-              <span className="w-2.5 h-2.5 rounded-full bg-warmgray/40" />
-              <span className="w-2.5 h-2.5 rounded-full bg-beige" />
+              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-terracotta/80" />
+              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-warmgray/40" />
+              <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-beige" />
             </div>
             
             {/* Terminal lines */}
-            <div className="space-y-1.5 text-xs sm:text-sm">
+            <div className="space-y-1.5 text-[11px] sm:text-sm">
               <div className="flex items-center">
                 <span className="text-terracotta select-none mr-2">➜</span>
-                <span>{line1}</span>
+                <span className="break-all">{line1}</span>
                 {currentPhase === 'line1' && (
                   <span className={`w-1.5 h-4 bg-terracotta ml-0.5 ${cursorBlink ? 'opacity-100' : 'opacity-0'}`} />
                 )}
@@ -141,7 +237,7 @@ export function Hero() {
               {(currentPhase !== 'line1' && currentPhase !== 'wait1') && (
                 <div className="flex items-center min-h-[1.5rem]">
                   <span className="text-warmgray select-none mr-2">↳</span>
-                  <span className="text-charcoal font-semibold">
+                  <span className="text-charcoal font-semibold break-all">
                     {currentPhase === 'roles' ? roleText : line2}
                   </span>
                   <span className={`w-1.5 h-4 bg-terracotta ml-0.5 ${cursorBlink ? 'opacity-100' : 'opacity-0'}`} />
@@ -152,12 +248,12 @@ export function Hero() {
 
           {/* Title and Tagline */}
           <Reveal delay={200}>
-            <div className="space-y-4">
-              <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-charcoal leading-tight font-bold">
+            <div className="space-y-3 sm:space-y-4">
+              <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-charcoal leading-tight font-bold">
                 Kalavalapudi <br />
                 <span className="text-terracotta font-serif">Bharath Kumar</span>
               </h1>
-              <p className="font-serif text-lg sm:text-xl text-warmgray italic max-w-xl">
+              <p className="font-serif text-base sm:text-xl text-warmgray italic max-w-xl">
                 "{`Building scalable solutions. Solving real-world problems.`}"
               </p>
             </div>
@@ -165,11 +261,11 @@ export function Hero() {
 
           {/* CTA Buttons */}
           <Reveal delay={400}>
-            <div className="flex flex-wrap gap-4">
+            <div className="flex flex-wrap gap-3 sm:gap-4">
               <a
                 href="#projects"
                 onClick={handleScrollToProjects}
-                className="flex items-center space-x-2 px-6 py-3 bg-terracotta text-ivory border border-terracotta hover:bg-transparent hover:text-terracotta transition-all duration-300 font-mono text-sm rounded-sm"
+                className="flex items-center space-x-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-terracotta text-ivory border border-terracotta hover:bg-transparent hover:text-terracotta transition-all duration-300 font-mono text-xs sm:text-sm rounded-sm"
               >
                 <span>View projects</span>
                 <ArrowRight className="w-4 h-4" />
@@ -178,7 +274,7 @@ export function Hero() {
                 href="/resume.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center space-x-2 px-6 py-3 border border-terracotta text-terracotta hover:bg-terracotta hover:text-ivory transition-all duration-300 font-mono text-sm rounded-sm"
+                className="flex items-center space-x-2 px-5 sm:px-6 py-2.5 sm:py-3 border border-terracotta text-terracotta hover:bg-terracotta hover:text-ivory transition-all duration-300 font-mono text-xs sm:text-sm rounded-sm"
               >
                 <FileText className="w-4 h-4" />
                 <span>Download resume</span>
@@ -188,74 +284,54 @@ export function Hero() {
 
           {/* Colored Tech Icons */}
           <Reveal delay={600}>
-            <div className="border-t-[0.5px] border-beige pt-6">
-              <p className="text-xs font-mono text-warmgray tracking-widest uppercase mb-3">Core Stack</p>
-              <div className="flex flex-wrap gap-x-5 gap-y-3 items-center">
+            <div className="border-t-[0.5px] border-beige pt-4 sm:pt-6">
+              <p className="text-[10px] sm:text-xs font-mono text-warmgray tracking-widest uppercase mb-2 sm:mb-3">Core Stack</p>
+              <div className="flex flex-wrap gap-x-4 sm:gap-x-5 gap-y-2 sm:gap-y-3 items-center">
                 {/* JS Icon */}
-                <div className="group flex items-center space-x-1.5 text-[#F7DF1E] hover:scale-105 transition-transform duration-300 cursor-default" title="JavaScript">
-                  <svg className="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <div className="group flex items-center space-x-1 sm:space-x-1.5 text-[#F7DF1E] hover:scale-105 transition-transform duration-300 cursor-default" title="JavaScript">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 fill-current" viewBox="0 0 24 24">
                     <path d="M3 3h18v18H3V3zm12.525 10.95c-.12-.66-.54-1.2-1.32-1.38-.855-.21-1.275-.525-1.275-1.005 0-.465.42-.75 1.02-.75.6 0 .975.255 1.155.675.09.225.27.345.525.345h1.23c.3 0 .42-.195.3-.495-.405-1.02-1.365-1.635-2.685-1.635-1.44 0-2.43.915-2.43 2.1 0 1.29.93 1.83 2.295 2.175.9.225 1.2.555 1.2 1.035 0 .54-.48.87-1.155.87-.825 0-1.245-.375-1.425-.975-.09-.27-.27-.375-.54-.375h-1.26c-.3 0-.39.21-.27.525.435 1.155 1.395 1.95 2.91 1.95 1.635 0 2.76-.855 2.76-2.295 0-1.125-.66-1.74-2.07-2.07zm-7.695.045c.075-.465.345-.735.855-.735h1.185c.3 0 .42-.195.3-.495-.36-.93-1.245-1.575-2.415-1.575-1.65 0-2.73 1.095-2.73 2.895s1.08 2.895 2.73 2.895c1.23 0 2.1-.645 2.475-1.635.09-.27-.03-.495-.3-.495H9.285c-.51 0-.795-.27-.855-.735H12c.3 0 .39-.24.27-.525l-.465-1.035c-.105-.285-.3-.495-.585-.495H7.83z"/>
                   </svg>
-                  <span className="font-mono text-xs font-semibold text-charcoal">JS</span>
+                  <span className="font-mono text-[10px] sm:text-xs font-semibold text-charcoal">JS</span>
                 </div>
 
                 {/* React Icon */}
-                <div className="group flex items-center space-x-1.5 text-[#61DAFB] hover:scale-105 transition-transform duration-300 cursor-default" title="React.js">
-                  <svg className="w-5 h-5 animate-spin-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="group flex items-center space-x-1 sm:space-x-1.5 text-[#61DAFB] hover:scale-105 transition-transform duration-300 cursor-default" title="React.js">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 animate-spin-slow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="2"/>
                     <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2z" strokeDasharray="3 3"/>
                     <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(30 12 12)"/>
                     <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(90 12 12)"/>
                     <ellipse cx="12" cy="12" rx="10" ry="4.5" transform="rotate(150 12 12)"/>
                   </svg>
-                  <span className="font-mono text-xs font-semibold text-charcoal">React</span>
+                  <span className="font-mono text-[10px] sm:text-xs font-semibold text-charcoal">React</span>
                 </div>
 
                 {/* Node Icon */}
-                <div className="group flex items-center space-x-1.5 text-[#68A063] hover:scale-105 transition-transform duration-300 cursor-default" title="Node.js">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="group flex items-center space-x-1 sm:space-x-1.5 text-[#68A063] hover:scale-105 transition-transform duration-300 cursor-default" title="Node.js">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 2L3.5 7v10L12 22l8.5-5V7L12 2z"/>
                     <path d="M12 22V12"/>
                     <path d="M12 12L3.5 7"/>
                     <path d="M12 12l8.5-5"/>
                   </svg>
-                  <span className="font-mono text-xs font-semibold text-charcoal">Node</span>
+                  <span className="font-mono text-[10px] sm:text-xs font-semibold text-charcoal">Node</span>
                 </div>
 
                 {/* MongoDB Icon */}
-                <div className="group flex items-center space-x-1.5 text-[#47A248] hover:scale-105 transition-transform duration-300 cursor-default" title="MongoDB">
-                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <div className="group flex items-center space-x-1 sm:space-x-1.5 text-[#47A248] hover:scale-105 transition-transform duration-300 cursor-default" title="MongoDB">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M12 2c0 0-4 4.5-4 8.5C8 13.5 10 16 12 22c2-6 4-8.5 4-11.5C16 6.5 12 2 12 2z"/>
                     <path d="M12 6v10"/>
                   </svg>
-                  <span className="font-mono text-xs font-semibold text-charcoal">Mongo</span>
+                  <span className="font-mono text-[10px] sm:text-xs font-semibold text-charcoal">Mongo</span>
                 </div>
 
                 {/* TS Icon */}
-                <div className="group flex items-center space-x-1.5 text-[#3178C6] hover:scale-105 transition-transform duration-300 cursor-default" title="TypeScript">
-                  <div className="w-5 h-5 border-2 border-current rounded flex items-center justify-center font-mono text-[9px] font-bold">TS</div>
-                  <span className="font-mono text-xs font-semibold text-charcoal">TS</span>
+                <div className="group flex items-center space-x-1 sm:space-x-1.5 text-[#3178C6] hover:scale-105 transition-transform duration-300 cursor-default" title="TypeScript">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 border-2 border-current rounded flex items-center justify-center font-mono text-[7px] sm:text-[9px] font-bold">TS</div>
+                  <span className="font-mono text-[10px] sm:text-xs font-semibold text-charcoal">TS</span>
                 </div>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-
-        {/* Right Column: Image */}
-        <div className="md:col-span-5 flex justify-center order-1 md:order-2 mb-8 md:mb-0">
-          <Reveal delay={300} direction="none">
-            <div className="relative group">
-              {/* Outer decorative line circle */}
-              <div className="absolute -inset-3 rounded-full border border-dashed border-terracotta/40 group-hover:border-terracotta transition-colors duration-500 animate-spin-slow pointer-events-none" />
-              
-              {/* Image Frame */}
-              <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full border-[1.5px] border-terracotta/80 shadow-xl shadow-charcoal/5 overflow-hidden transition-all duration-750 ease-in-out bg-cream flex items-center justify-center">
-                <img
-                  src={profileImg}
-                  alt="Kalavalapudi Bharath Kumar"
-                  className="w-full h-full object-cover transform scale-100 group-hover:scale-105 transition-transform duration-750 ease-in-out"
-                  loading="eager"
-                />
               </div>
             </div>
           </Reveal>
