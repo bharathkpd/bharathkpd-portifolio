@@ -132,35 +132,38 @@ export function Navbar() {
           </button>
         </div>
 
-        <nav className="flex flex-col px-6 space-y-6 mt-8">
-          <ul className="flex flex-col space-y-4 text-base font-medium">
-            {navLinks.map((link) => {
+        <nav className="flex flex-col px-6 mt-4 justify-between h-[calc(100%-8rem)]">
+          <ul className="flex flex-col divide-y-[0.5px] divide-beige/50">
+            {navLinks.map((link, idx) => {
               const isActive = activeId === link.id;
               return (
                 <li key={link.id}>
                   <a
                     href={link.path}
                     onClick={(e) => handleLinkClick(e, link.id)}
-                    className={`block py-2 border-b-[0.5px] border-beige transition-colors duration-250 ${
+                    className={`flex items-center justify-between py-4 transition-colors duration-250 ${
                       isActive ? 'text-terracotta font-semibold' : 'text-warmgray'
                     }`}
                   >
-                    {link.label}
+                    <span className="font-sans text-sm tracking-wide">{link.label}</span>
+                    <span className="font-mono text-[10px] text-terracotta/75">0{idx + 1}</span>
                   </a>
                 </li>
               );
             })}
           </ul>
 
-          <a
-            href="/resume.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center space-x-2 px-4 py-3 border border-terracotta text-terracotta hover:bg-terracotta hover:text-ivory text-sm font-mono transition-all duration-300 rounded-sm w-full"
-          >
-            <FileText className="w-4 h-4" />
-            <span>resume.pdf</span>
-          </a>
+          <div className="pt-6 border-t-[0.5px] border-beige/50 mt-auto">
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center justify-center space-x-2 px-4 py-3 bg-cream border border-terracotta text-terracotta hover:bg-terracotta hover:text-ivory text-sm font-mono transition-all duration-300 rounded-sm w-full"
+            >
+              <FileText className="w-4 h-4" />
+              <span>resume.pdf</span>
+            </a>
+          </div>
         </nav>
       </div>
     </header>
