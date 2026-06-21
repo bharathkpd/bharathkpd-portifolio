@@ -237,10 +237,10 @@ export function Hero() {
           <Reveal delay={300} direction="none">
             <div className="relative group">
               {/* Outer decorative line circle */}
-              <div className="absolute -inset-2 rounded-full border border-dashed border-beige group-hover:border-terracotta transition-colors duration-500 animate-spin-slow pointer-events-none" />
+              <div className="absolute -inset-3 rounded-full border border-dashed border-terracotta/40 group-hover:border-terracotta transition-colors duration-500 animate-spin-slow pointer-events-none" />
               
               {/* Image Frame */}
-              <div className="w-40 h-40 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full border-[0.5px] border-beige overflow-hidden transition-all duration-750 ease-in-out bg-cream flex items-center justify-center">
+              <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full border-[1.5px] border-terracotta/80 shadow-xl shadow-charcoal/5 overflow-hidden transition-all duration-750 ease-in-out bg-cream flex items-center justify-center">
                 <img
                   src={profileImg}
                   alt="Kalavalapudi Bharath Kumar"
