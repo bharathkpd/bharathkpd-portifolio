@@ -108,7 +108,7 @@ export function Hero() {
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center w-full">
         
         {/* Left Column: Text Content */}
-        <div className="md:col-span-7 flex flex-col justify-center space-y-8">
+        <div className="md:col-span-7 flex flex-col justify-center space-y-8 order-2 md:order-1">
           
           {/* Typing Terminal */}
           <div className="w-full max-w-lg bg-cream border-[0.5px] border-beige rounded p-4 font-mono text-sm text-charcoal">
@@ -233,14 +233,14 @@ export function Hero() {
         </div>
 
         {/* Right Column: Image */}
-        <div className="md:col-span-5 flex justify-center mt-8 md:mt-0">
+        <div className="md:col-span-5 flex justify-center order-1 md:order-2 mb-8 md:mb-0">
           <Reveal delay={300} direction="none">
             <div className="relative group">
               {/* Outer decorative line circle */}
               <div className="absolute -inset-2 rounded-full border border-dashed border-beige group-hover:border-terracotta transition-colors duration-500 animate-spin-slow pointer-events-none" />
               
               {/* Image Frame */}
-              <div className="w-44 h-44 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full border-[0.5px] border-beige overflow-hidden transition-all duration-750 ease-in-out bg-cream flex items-center justify-center">
+              <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full border-[0.5px] border-beige overflow-hidden transition-all duration-750 ease-in-out bg-cream flex items-center justify-center">
                 <img
                   src={profileImg}
                   alt="Kalavalapudi Bharath Kumar"
