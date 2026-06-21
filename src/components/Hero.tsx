@@ -104,7 +104,16 @@ export function Hero() {
   };
 
   return (
-    <section id="home" className="min-h-[calc(100vh-4rem)] flex items-center bg-ivory py-12 border-b-[0.5px] border-beige">
+    <section id="home" className="relative min-h-[calc(100vh-4rem)] flex items-center bg-ivory bg-grid-pattern py-12 border-b-[0.5px] border-beige overflow-hidden">
+      {/* CSE Floating Background Watermarks */}
+      <div className="absolute top-[12%] left-[5%] font-mono text-[10px] sm:text-xs text-terracotta/10 select-none pointer-events-none uppercase tracking-widest hidden sm:block">const dept = 'cse';</div>
+      <div className="absolute top-[40%] left-[8%] font-mono text-[9px] sm:text-[10px] text-warmgray/8 select-none pointer-events-none hidden lg:block">import &#123; algorithms, structures &#125; from 'computer-science';</div>
+      <div className="absolute top-[8%] right-[8%] font-mono text-xl sm:text-2xl font-bold text-terracotta/[0.04] select-none pointer-events-none">01011001</div>
+      <div className="absolute top-[35%] right-[4%] font-mono text-xs sm:text-sm text-warmgray/8 select-none pointer-events-none hidden md:block">&#123; dev: "MERN Stack" &#125;</div>
+      <div className="absolute bottom-[12%] left-[8%] font-mono text-[10px] sm:text-[11px] text-warmgray/8 select-none pointer-events-none hidden sm:block">while(problem) &#123; solve(); &#125;</div>
+      <div className="absolute bottom-[18%] right-[10%] font-mono text-[10px] sm:text-xs text-terracotta/10 select-none pointer-events-none uppercase tracking-widest hidden sm:block">&lt;cse_graduate /&gt;</div>
+      <div className="absolute bottom-[4%] left-[40%] font-serif text-[12vw] font-bold text-charcoal/[0.015] select-none pointer-events-none uppercase leading-none hidden lg:block">C S E</div>
+
       <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center w-full">
         
         {/* Left Column: Text Content */}

@@ -62,7 +62,7 @@ export function Navbar() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 w-full bg-ivory/90 backdrop-blur-md border-b-[0.5px] border-beige">
+      <header className="sticky top-0 z-[100] w-full bg-ivory/90 backdrop-blur-md border-b-[0.5px] border-beige">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a 
@@ -122,7 +122,7 @@ export function Navbar() {
 
     {/* Mobile Slide-in Menu Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-charcoal/20 backdrop-blur-xs transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-[105] bg-charcoal/20 backdrop-blur-xs transition-opacity duration-300 md:hidden ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
         }`}
         onClick={toggleMenu}
@@ -130,7 +130,7 @@ export function Navbar() {
       
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-64 bg-cream border-l-[0.5px] border-beige shadow-lg transform transition-all duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 z-[110] h-full w-64 bg-cream border-l-[0.5px] border-beige shadow-lg transform transition-all duration-300 ease-in-out md:hidden ${
           isOpen ? 'translate-x-0 visible' : 'translate-x-full invisible pointer-events-none'
         }`}
       >
