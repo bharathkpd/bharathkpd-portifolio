@@ -127,14 +127,11 @@ export function Hero() {
         <div className="md:col-span-5 flex justify-center order-1 md:order-2 mb-4 md:mb-0">
           <Reveal delay={300} direction="none">
             <div className="relative group flex items-center justify-center">
-              {/* Outer decorative ring — scaled for mobile */}
-              <div className="absolute -inset-3 sm:-inset-4 rounded-full border border-dashed border-terracotta/30 group-hover:border-terracotta/60 transition-colors duration-500 animate-spin-slow pointer-events-none" />
-              
-              {/* Glowing accent ring on mobile */}
+              {/* Glowing accent ring */}
               <div className="absolute -inset-1 rounded-full bg-gradient-to-br from-terracotta/20 via-transparent to-terracotta/10 blur-sm pointer-events-none" />
 
-              {/* Image Frame — bigger and bolder on mobile */}
-              <div className="w-40 h-40 sm:w-56 sm:h-56 lg:w-80 lg:h-80 rounded-full border-2 sm:border-[1.5px] border-terracotta/80 shadow-2xl shadow-terracotta/10 overflow-hidden transition-all duration-750 ease-in-out bg-cream flex items-center justify-center">
+              {/* Image Frame — bigger on mobile */}
+              <div className="w-52 h-52 sm:w-56 sm:h-56 lg:w-80 lg:h-80 rounded-full border-2 sm:border-[1.5px] border-terracotta/80 shadow-2xl shadow-terracotta/10 overflow-hidden transition-all duration-750 ease-in-out bg-cream flex items-center justify-center">
                 <img
                   src={profileImg}
                   alt="Kalavalapudi Bharath Kumar"
