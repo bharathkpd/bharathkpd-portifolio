@@ -118,17 +118,19 @@ export function Navbar() {
       
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-64 bg-ivory border-l-[0.5px] border-beige shadow-lg transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 z-50 h-full w-64 bg-cream border-l-[0.5px] border-beige shadow-lg transform transition-transform duration-300 ease-in-out md:hidden ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className="flex justify-end p-5">
+        <div className="flex justify-between items-center p-5 border-b-[0.5px] border-beige/40">
+          <span className="font-mono text-[10px] text-warmgray uppercase tracking-widest">Navigation</span>
           <button
             onClick={toggleMenu}
-            className="p-2 text-charcoal hover:text-terracotta transition-colors"
+            className="flex items-center space-x-1.5 text-charcoal hover:text-terracotta transition-colors font-mono text-xs"
             aria-label="Close menu"
           >
-            <X className="w-6 h-6" />
+            <span className="text-[10px] text-warmgray/70">close()</span>
+            <X className="w-4 h-4" />
           </button>
         </div>
 
@@ -145,7 +147,10 @@ export function Navbar() {
                       isActive ? 'text-terracotta font-semibold' : 'text-warmgray'
                     }`}
                   >
-                    <span className="font-sans text-sm tracking-wide">{link.label}</span>
+                    <div className="flex items-center space-x-2">
+                      {isActive && <span className="w-1.5 h-1.5 rounded-full bg-terracotta animate-pulse" />}
+                      <span className="font-sans text-sm tracking-wide">{link.label}</span>
+                    </div>
                     <span className="font-mono text-[10px] text-terracotta/75">0{idx + 1}</span>
                   </a>
                 </li>
