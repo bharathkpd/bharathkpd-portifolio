@@ -230,7 +230,7 @@ export function Skills() {
         // Default generic indicator dot for other skills (like Responsive Design, REST API, etc.)
         return {
           icon: (
-            <span className="w-2 h-2 rounded-full bg-terracotta mr-1.5 inline-block shrink-0" />
+            <span className="w-2 h-2 rounded-full bg-terracotta inline-block shrink-0" />
           ),
           colorClass: 'text-charcoal hover:text-terracotta',
           borderHoverClass: 'hover:border-terracotta'
@@ -277,7 +277,7 @@ export function Skills() {
                     return (
                       <span
                         key={itemIdx}
-                        className={`flex items-center px-3 py-1.5 bg-ivory border-[0.5px] border-beige text-xs font-mono rounded-sm transition-all duration-300 cursor-default select-none ${config.colorClass} ${config.borderHoverClass}`}
+                        className={`flex items-center gap-1.5 px-3 py-1.5 bg-ivory border-[0.5px] border-beige text-xs font-mono rounded-sm transition-all duration-300 cursor-default select-none ${config.colorClass} ${config.borderHoverClass}`}
                       >
                         {config.icon}
                         <span>{item}</span>
