@@ -61,8 +61,9 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-ivory/90 backdrop-blur-md border-b-[0.5px] border-beige">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <>
+      <header className="sticky top-0 z-50 w-full bg-ivory/90 backdrop-blur-md border-b-[0.5px] border-beige">
+        <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <a 
           href="#home" 
@@ -117,8 +118,9 @@ export function Navbar() {
           {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
       </div>
+    </header>
 
-      {/* Mobile Slide-in Menu Overlay */}
+    {/* Mobile Slide-in Menu Overlay */}
       <div
         className={`fixed inset-0 z-40 bg-charcoal/20 backdrop-blur-xs transition-opacity duration-300 md:hidden ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
@@ -181,6 +183,6 @@ export function Navbar() {
           </div>
         </nav>
       </div>
-    </header>
+    </>
   );
 }

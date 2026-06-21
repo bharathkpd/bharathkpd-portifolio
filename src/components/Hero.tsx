@@ -240,7 +240,7 @@ export function Hero() {
               <div className="absolute -inset-2 rounded-full border border-dashed border-beige group-hover:border-terracotta transition-colors duration-500 animate-spin-slow pointer-events-none" />
               
               {/* Image Frame */}
-              <div className="w-48 h-48 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full border-[0.5px] border-beige overflow-hidden transition-all duration-750 ease-in-out bg-cream flex items-center justify-center">
+              <div className="w-40 h-40 sm:w-64 sm:h-64 lg:w-80 lg:h-80 rounded-full border-[0.5px] border-beige overflow-hidden transition-all duration-750 ease-in-out bg-cream flex items-center justify-center">
                 <img
                   src={profileImg}
                   alt="Kalavalapudi Bharath Kumar"
